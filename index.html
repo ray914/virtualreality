@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="js/aframe.0.5.0.min.js"></script>
+	<script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+	<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+
+
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="bg" src="img/fondo_madelin.jpg">
+            <img id="boat" src="img/bote_madelin.png">
+        </a-assets>
+        <a-sky src="#bg"></a-sky>
+
+        <a-entity position="0 0 5">
+            <a-entity camera look-controls>
+                <a-cursor id="cursor" geometry="radiusInner: 0.03; radiusOuter: 0.04" 
+                    event-set__1="_event: mouseenter; color: red"
+                    event-set__2="_event: mouseleave; color: gray" 
+                    raycaster="objects: .boat"></a-cursor>
+            </a-entity>
+        </a-entity>
+
+        <a-plane class="boat" height="1.5" width="1.5" src="#boat" opacity="0.9" position="3.5 -2.5 -1">
+            <a-animation begin="click" attribute="position" from="3.5 -2.5 -1" to="1.5 -3.5 -1" dur="1000"
+               fill="fordwards"></a-animation>
+        </a-plane>
+    </a-scene>
+</body>
+
+</html>
